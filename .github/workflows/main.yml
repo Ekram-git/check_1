@@ -1,4 +1,4 @@
-name: Push to Development Branch
+name: Pull from Test and Push to Dev
 
 on:
   push:
@@ -6,18 +6,22 @@ on:
       - test
 
 jobs:
-  push_to_development:
-    name: Push to Development Branch
+  pull_and_push:
+    name: Pull from Test and Push to Dev
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Fetch latest changes
-        run: git fetch origin
+      - name: Fetch latest changes from test branch
+        run: git fetch origin test
 
-      - name: Push to Development Branch
+      - name: Pull latest changes from test branch
+        run: git pull origin test
+
+      - name: Push changes to dev branch
         run: |
-          git checkout dev
-          git push origin dev
+          git config --global user.name "Ekram karim"
+          git config --global user.email "Ekramkarim@hotmail.com"
+          git push origin test:dev
