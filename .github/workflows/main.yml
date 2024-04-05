@@ -23,7 +23,7 @@ jobs:
         run: pip install pytest
 
       - name: Run tests
-        run: pytest test.py
+        run: pytest test_print.py
 
       - name: Push changes to dev branch
         if: ${{ success() }}
