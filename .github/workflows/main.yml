@@ -16,7 +16,7 @@ jobs:
 
       - name: Push to Development Branch
         run: |
-          git push origin development
+          git push origin dev
 
   pull_from_feature:
     name: Pull from Feature Branch
