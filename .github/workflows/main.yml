@@ -18,10 +18,10 @@ jobs:
         run: git fetch origin
 
       - name: Merge changes from origin/dev into test
-        run: git merge origin/dev
+        run: git merge origin/dev --allow-unrelated-histories
 
       - name: Push changes to dev branch
         run: |
           git config --global user.name "Ekram karim"
-          git config --global user.email "Ekramkarim@hotmail.com"
+          git config --global user.email "your_email@example.com"
           git push origin test:dev
