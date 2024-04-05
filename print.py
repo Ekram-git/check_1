@@ -1,30 +1,19 @@
-T# Print a string
-print("Hello, world!")
+# test.py
 
-# Print multiple values
-x = 10
-y = 20
-print("The value of x is:", x, "and the value of y is:", y)
+def test_hello_world():
+    assert "Hello, world!" in capture_console_output(main)
 
-# Print using formatted strings (Python 3.6+)
-name = "Alice"
-age = 30
-print(f"My name is {name} and I am {age} years old.")
+def test_values():
+    x = 10
+    y = 20
+    assert f"The value of x is: {x} and the value of y is: {y}" in capture_console_output(main)
 
-# Printing with concatenation
-a = 5
-b = 7
-print("The sum of " + str(a) + " and " + str(b) + " is " + str(a + b))
+def test_formatted_string():
+    name = "Alice"
+    age = 30
+    assert f"My name is {name} and I am {age} years old." in capture_console_output(main)
 
-
-//this is coding file
-//trig the functions
-//trigger again
-
-//trigger trigger
-//trigger trigger trigger
-// trigguring functions
-// trigger work work work
-//trigger again
-//no merge change change 
-//boom boom run
+def test_sum():
+    a = 5
+    b = 7
+    assert f"The sum of {a} and {b} is {a + b}" in capture_console_output(main)
