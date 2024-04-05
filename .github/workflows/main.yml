@@ -1,9 +1,9 @@
-name: Push to Development and Pull from Feature
+name: Push to Development and Create Pull Request
 
 on:
   push:
     branches:
-      - feature
+      - test
 
 jobs:
   push_to_development:
@@ -14,18 +14,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Push to Development Branch
+      - name: Push to dev Branch
         run: |
+          git checkout dev
           git push origin dev
 
-  pull_from_feature:
-    name: Pull from Feature Branch
+  create_pull_request:
+    name: Create Pull Request from Test-Feature to Test
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Pull from Feature Branch
-        run: |
-          git pull origin feature
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          branch: test-feature
+          title: "Merge changes from test-feature to test"
+          body: "This pull request merges changes from test-feature to the test branch."
