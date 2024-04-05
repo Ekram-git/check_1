@@ -23,5 +23,5 @@ jobs:
       - name: Push changes to dev branch
         run: |
           git config --global user.name "Ekram karim"
-          git config --global user.email "your_email@example.com"
+          git config --global user.email "Ekramkarim@hotmail.com"
           git push origin test:dev
