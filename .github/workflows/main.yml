@@ -14,11 +14,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Fetch latest changes from test branch
-        run: git fetch origin test
+      - name: Fetch latest changes from origin
+        run: git fetch origin
 
-      - name: Pull latest changes from test branch
-        run: git pull origin test
+      - name: Merge changes from origin/dev into test
+        run: git merge origin/dev
 
       - name: Push changes to dev branch
         run: |
