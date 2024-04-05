@@ -14,6 +14,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Configure Git user name and email
+        run: |
+          git config --global user.name "Ekram karim"
+          git config --global user.email "Ekramkarim@hotmail.com"
+
       - name: Fetch latest changes from origin
         run: git fetch origin
 
@@ -22,6 +27,4 @@ jobs:
 
       - name: Push changes to dev branch
         run: |
-          git config --global user.name "Ekram karim"
-          git config --global user.email "Ekramkarim@hotmail.com"
           git push origin test:dev
